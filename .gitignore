@@ -1,0 +1,21 @@
+# 编译产物
+target/
+build/
+out/
+
+# IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+*.log
+
+# Maven wrapper jar
+.mvn/wrapper/maven-wrapper.jar
+
+# 本地私有配置（含数据库账号密码，禁止提交）
+**/application-local.properties
+
+# 系统
+.DS_Store
+Thumbs.db
