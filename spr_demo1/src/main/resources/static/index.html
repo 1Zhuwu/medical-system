@@ -8,30 +8,21 @@
 
 <h1>医疗挂号系统</h1>
 
-<p>后端已启动，下面是当前可用的接口，点开就能看到返回的数据。</p>
-
-<h2>实验一</h2>
 <ul>
     <li><a href="/hello">/hello</a> —— HelloWorld 测试接口</li>
-</ul>
-
-<h2>实验二</h2>
-<ul>
     <li><a href="/api/departments">/api/departments</a> —— 科室分页查询</li>
     <li><a href="/api/doctors">/api/doctors</a> —— 医生分页查询（带科室名称）</li>
     <li><a href="/api/patients">/api/patients</a> —— 患者分页查询（手机号、身份证脱敏）</li>
 </ul>
 
-<p>以上接口都支持附加参数，例如：</p>
+<p>可以带参数，例如：</p>
 <ul>
     <li><a href="/api/departments?pageNum=1&amp;pageSize=3">/api/departments?pageNum=1&amp;pageSize=3</a></li>
     <li><a href="/api/departments?keyword=内">/api/departments?keyword=内</a></li>
     <li><a href="/api/doctors?deptId=1">/api/doctors?deptId=1</a></li>
 </ul>
 
-<h2>说明</h2>
-<p>新增、修改、删除接口需要用 Postman 或 curl 发送 POST、PUT、DELETE 请求，浏览器地址栏只能发起 GET 请求。</p>
-<p>统一响应格式：code 状态码，message 提示信息，data 业务数据。</p>
+<p>返回格式：code 状态码，message 提示信息，data 业务数据。</p>
 
 </body>
 </html>
