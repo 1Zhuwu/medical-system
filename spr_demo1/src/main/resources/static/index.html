@@ -1,82 +1,37 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>医疗挂号系统 · 后台管理</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>医疗挂号系统</title>
 </head>
 <body>
 
-<div class="layout">
+<h1>医疗挂号系统</h1>
 
-  <!-- 左侧导航 -->
-  <aside class="sidebar">
-    <div class="brand">
-      <div class="brand-mark">医</div>
-      <div class="brand-text">
-        <strong>医疗挂号系统</strong>
-        <span>后台管理</span>
-      </div>
-    </div>
+<p>后端已启动，下面是当前可用的接口，点开就能看到返回的数据。</p>
 
-    <nav class="nav" id="nav"></nav>
+<h2>实验一</h2>
+<ul>
+    <li><a href="/hello">/hello</a> —— HelloWorld 测试接口</li>
+</ul>
 
-    <div class="side-foot">
-      <a class="side-link" href="/hello" target="_blank">Hello 测试接口 ↗</a>
-      <span class="conn" id="connState">连接中…</span>
-    </div>
-  </aside>
+<h2>实验二</h2>
+<ul>
+    <li><a href="/api/departments">/api/departments</a> —— 科室分页查询</li>
+    <li><a href="/api/doctors">/api/doctors</a> —— 医生分页查询（带科室名称）</li>
+    <li><a href="/api/patients">/api/patients</a> —— 患者分页查询（手机号、身份证脱敏）</li>
+</ul>
 
-  <!-- 右侧内容 -->
-  <main class="main">
-    <header class="head">
-      <div>
-        <h1 id="pageTitle">科室管理</h1>
-        <p id="pageDesc"></p>
-      </div>
-      <button class="btn primary" id="btnCreate">+ 新增</button>
-    </header>
+<p>以上接口都支持附加参数，例如：</p>
+<ul>
+    <li><a href="/api/departments?pageNum=1&amp;pageSize=3">/api/departments?pageNum=1&amp;pageSize=3</a></li>
+    <li><a href="/api/departments?keyword=内">/api/departments?keyword=内</a></li>
+    <li><a href="/api/doctors?deptId=1">/api/doctors?deptId=1</a></li>
+</ul>
 
-    <section class="card toolbar">
-      <input type="text" class="input keyword" id="keyword" placeholder="按编码或名称搜索">
-      <div class="filters" id="filters"></div>
-      <div class="spacer"></div>
-      <button class="btn" id="btnSearch">查询</button>
-      <button class="btn ghost" id="btnReset">重置</button>
-    </section>
+<h2>说明</h2>
+<p>新增、修改、删除接口需要用 Postman 或 curl 发送 POST、PUT、DELETE 请求，浏览器地址栏只能发起 GET 请求。</p>
+<p>统一响应格式：code 状态码，message 提示信息，data 业务数据。</p>
 
-    <section class="card">
-      <div class="table-scroll">
-        <table class="table">
-          <thead id="thead"></thead>
-          <tbody id="tbody"></tbody>
-        </table>
-      </div>
-      <div class="pager" id="pager"></div>
-    </section>
-  </main>
-
-</div>
-
-<!-- 新增 / 编辑弹窗 -->
-<div class="mask" id="mask">
-  <div class="dialog">
-    <div class="dialog-head">
-      <h2 id="dialogTitle">新增</h2>
-      <button class="close" id="btnClose" title="关闭">×</button>
-    </div>
-    <form class="dialog-body" id="form" autocomplete="off"></form>
-    <div class="dialog-foot">
-      <button class="btn ghost" id="btnCancel">取消</button>
-      <button class="btn primary" id="btnSubmit">保存</button>
-    </div>
-  </div>
-</div>
-
-<div class="toast" id="toast"></div>
-
-<script src="js/app.js"></script>
 </body>
 </html>
