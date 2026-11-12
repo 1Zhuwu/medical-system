@@ -9,6 +9,7 @@
 - MyBatis-Plus 3.5.3.1（分页插件、逻辑删除、自动填充）
 - MySQL 8.0 + HikariCP
 - Lombok
+- 前端原生 HTML/CSS/JavaScript，无框架、无构建
 
 ## 目录结构
 
@@ -25,7 +26,12 @@ spr_demo1/
 │   └── generator/CodeGenerator.java # 代码生成器
 └── src/main/resources/
     ├── application.properties
-    └── application-local.properties  # 本机密码，不入库
+    ├── application-local.properties  # 本机密码，不入库
+    └── static/                       # 前端页面
+        ├── index.html
+        ├── favicon.svg
+        ├── css/style.css
+        └── js/app.js
 docs/实验一实验二实施指南.md          # 实施与验收对照文档
 ```
 
@@ -56,11 +62,22 @@ cd spr_demo1
 mvn spring-boot:run
 ```
 
-默认端口 `8080`，访问 <http://localhost:8080/hello> 应返回：
+默认端口 `8080`。浏览器打开 <http://localhost:8080/> 就是管理页面；<http://localhost:8080/hello> 返回：
 
 ```
 医疗系统 Hello World！实验一接口访问成功
 ```
+
+## 前端
+
+页面在 `src/main/resources/static/` 下，三个纯静态文件，没有前端框架也不需要 Node，启动应用就能用。
+
+- 科室、医生、患者三个列表，支持关键字搜索、下拉筛选、分页
+- 新增和编辑走弹窗表单，字段的格式校验以服务端返回的提示为准
+- 编辑时先调详情接口取完整值再回填——列表接口的手机号、身份证是脱敏的，不能直接拿来填表
+- 左下角有连接状态指示，`/hello` 不通时会标红
+
+页面的筛选、校验、增删改都直接调后面的 REST 接口，前端不含任何业务规则。
 
 ## 接口清单
 

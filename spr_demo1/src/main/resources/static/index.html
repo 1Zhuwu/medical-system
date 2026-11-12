@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>医疗挂号系统 · 后台管理</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- 左侧导航 -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">医</div>
+      <div class="brand-text">
+        <strong>医疗挂号系统</strong>
+        <span>后台管理</span>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav"></nav>
+
+    <div class="side-foot">
+      <a class="side-link" href="/hello" target="_blank">Hello 测试接口 ↗</a>
+      <span class="conn" id="connState">连接中…</span>
+    </div>
+  </aside>
+
+  <!-- 右侧内容 -->
+  <main class="main">
+    <header class="head">
+      <div>
+        <h1 id="pageTitle">科室管理</h1>
+        <p id="pageDesc"></p>
+      </div>
+      <button class="btn primary" id="btnCreate">+ 新增</button>
+    </header>
+
+    <section class="card toolbar">
+      <input type="text" class="input keyword" id="keyword" placeholder="按编码或名称搜索">
+      <div class="filters" id="filters"></div>
+      <div class="spacer"></div>
+      <button class="btn" id="btnSearch">查询</button>
+      <button class="btn ghost" id="btnReset">重置</button>
+    </section>
+
+    <section class="card">
+      <div class="table-scroll">
+        <table class="table">
+          <thead id="thead"></thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+      <div class="pager" id="pager"></div>
+    </section>
+  </main>
+
+</div>
+
+<!-- 新增 / 编辑弹窗 -->
+<div class="mask" id="mask">
+  <div class="dialog">
+    <div class="dialog-head">
+      <h2 id="dialogTitle">新增</h2>
+      <button class="close" id="btnClose" title="关闭">×</button>
+    </div>
+    <form class="dialog-body" id="form" autocomplete="off"></form>
+    <div class="dialog-foot">
+      <button class="btn ghost" id="btnCancel">取消</button>
+      <button class="btn primary" id="btnSubmit">保存</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
