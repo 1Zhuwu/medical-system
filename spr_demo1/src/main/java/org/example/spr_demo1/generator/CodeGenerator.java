@@ -20,8 +20,9 @@ public class CodeGenerator {
     private static final String URL =
             "jdbc:mysql://localhost:3306/medical_db?useUnicode=true&characterEncoding=utf8"
                     + "&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true";
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "123456";
+    // 账号密码不再写死在代码里，运行时从环境变量读取（缺省给本地开发默认值）
+    private static final String USERNAME = System.getenv().getOrDefault("DB_USERNAME", "root");
+    private static final String PASSWORD = System.getenv().getOrDefault("DB_PASSWORD", "");
 
     public static void main(String[] args) {
         String outputDir = System.getProperty("user.dir") + "/target/mp-generator";
